@@ -2,8 +2,12 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
     testDir: './tests',
-    reporter: [['list']],
-    workers: 3,
+    reporter: [
+        ['list'],
+        ['allure-playwright']
+    ],
+
+    workers: process.env.CI ? 3 : 1,
 
     projects: [
         {

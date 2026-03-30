@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "module.js",
   "devDependencies": {
-    "@playwright/test": "^1.58.2"
+    "@playwright/test": "^1.58.2",
+    "allure-playwright": "^3.6.0"
   }
 }
