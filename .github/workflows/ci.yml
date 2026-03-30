@@ -1,4 +1,4 @@
-name: Playwright CI (Windows + Browsers)
+name: Playwright CI with Docker
 
 on:
   push:
@@ -6,26 +6,13 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest   # ✅ Windows instead of Ubuntu
-
-    strategy:
-      matrix:
-        browser: [chromium, firefox, webkit]
+    runs-on: ubuntu-latest   # Docker works best here
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Playwright Browsers
-        run: npx playwright install
-
-      - name: Run tests on browser
-        run: npx playwright test --project=${{ matrix.browser }}
+      - name: Run tests in Docker
+        run: |
+          docker build -t playwright-ci .
+          docker run playwright-ci
