@@ -4,10 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
-RUN chmod -R 777 /app
-
-CMD ["npx", "playwright", "test"]
+CMD ["bash", "-c", "npx playwright test"]
