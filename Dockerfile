@@ -5,9 +5,9 @@ WORKDIR /app
 COPY package*.json ./
 
 RUN npm ci && \
-    npm install --save-optional @playwright/test && \
-    npx playwright install-deps
+    npx playwright install-deps && \
+    chmod +x /app/node_modules/.bin/* 2>/dev/null || true
 
 COPY . .
 
-CMD ["npx", "playwright", "test", "--config=playwright.config.js"]
+CMD ["sh", "-c", "npx playwright test --config=playwright.config.js"]

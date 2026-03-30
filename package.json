@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "test": "playwright test"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module.js",
+  "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "allure-playwright": "^3.6.0"
