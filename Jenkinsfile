@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/saravijr10/cicd-playwright.git'
+                git branch: 'main', url: 'https://github.com/saravijr10/cicd-playwright.git'
             }
         }
 
