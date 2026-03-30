@@ -11,13 +11,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t playwright-ci .'
+                bat 'docker build -t playwright-ci .'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'docker run --rm playwright-ci'
+                bat 'docker run --rm playwright-ci'
             }
         }
 
