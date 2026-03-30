@@ -8,4 +8,4 @@ RUN npm ci
 
 COPY . .
 
-CMD ["bash", "-c", "npx playwright test"]
+CMD ["npx", "playwright", "test", "--config=playwright.config.js"]
