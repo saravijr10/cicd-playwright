@@ -10,6 +10,6 @@ RUN npm ci && \
 COPY . .
 
 RUN chmod -R +x /app/node_modules/.bin/ && \
-    find /app/node_modules -type f -name "*.so*" -o -name "*.node" | xargs chmod +x
+    find /app/node_modules -type f \( -name "*.so*" -o -name "*.node" \) -exec chmod +x {} \;
 
 CMD ["bash", "-c", "npx playwright test --config=playwright.config.js"]
