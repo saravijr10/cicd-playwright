@@ -8,7 +8,6 @@ RUN npm install
 
 COPY . .
 
-# 🔥 Fix permission issue
-USER root
+RUN chmod -R 777 /app
 
 CMD ["npx", "playwright", "test"]
