@@ -4,8 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci && npx playwright install-deps
+RUN npm install && npx playwright install-deps
 
 COPY . .
 
-CMD ["bash", "-c", "npx playwright test"]
+CMD ["npm", "test"]

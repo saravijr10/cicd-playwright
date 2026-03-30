@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t playwright-ci .'
+                bat 'docker build --no-cache -t playwright-ci .'
             }
         }
 
